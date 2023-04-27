@@ -507,9 +507,24 @@ body {
 
                 > div {
                     display: flex;
-                    justify-content: space-between;
-                    width: 100%;
+                    flex-direction: column;
+                    gap: 2vh;
+                    width: 90%;
+                    padding: 3vh 4vw;
+                    border: 3px solid var(--chocolate-web);
+                    border-radius: 10px;
+
+                    div {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+
+                        label {
+                            color: var(--carnelian);
+                        }
+                    }
                 }
+
 
                 button {
                     margin-top: 2vh;

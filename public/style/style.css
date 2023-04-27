@@ -442,8 +442,20 @@ body .page-content#loginPage form {
 }
 body .page-content#loginPage form > div {
   display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 90%;
+  padding: 3vh 4vw;
+  border: 3px solid var(--chocolate-web);
+  border-radius: 10px;
+}
+body .page-content#loginPage form > div div {
+  display: flex;
   justify-content: space-between;
   width: 100%;
+}
+body .page-content#loginPage form > div div label {
+  color: var(--carnelian);
 }
 body .page-content#loginPage form button {
   margin-top: 2vh;
