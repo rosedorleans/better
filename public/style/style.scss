@@ -1,0 +1,529 @@
+/* vars */
+
+:root {
+    /* colors */
+    --sunglow: #ffcc35;
+    --chocolate-web: #dc7126;
+    --carnelian: #b81616;
+    --green-ryb: #68b306;
+    --avocado: #4f8904;
+    --background: #eeeeee;
+    --cultured: #f5f6f7; 
+    --gainsboro: #dedfdf;
+    --silver: #c7c7c7;
+    --manatee: #979ba7;
+    --granite-gray: #636363;
+    --eerie-black: #262626;
+    --cosmic-latte: #fdf4e0;
+}
+
+body {
+    margin: 0;
+
+    .hidden {
+        display: none !important;
+    }
+
+    #blockedPage {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: none;
+		height: 100%;
+		width: 100%;
+		background-color: #80808075;
+		z-index: 1;
+        pointer-events: none;
+
+        .spinner {
+            position: absolute;
+            display: inline-block;
+            align-self: center;
+            top: 50vh;
+            right: 50%;
+            height: 60px;
+            width: 60px;
+            transform: translate(50%, 0);
+        
+            div {
+                position: absolute;
+                display: block;
+                height: 60px;
+                width: 60px;
+                box-sizing: border-box;
+                border: 6px solid #fff;
+                border-color: #FFF transparent transparent transparent;
+                border-radius: 50%;
+                animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+                &:nth-child(1) {
+                    animation-delay: -0.45s;
+                }
+                &:nth-child(2) {
+                    animation-delay: -0.3s;
+                }
+                &:nth-child(3) {
+                    animation-delay: -0.15s;
+                }
+            }
+
+            @keyframes spinner {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+	}
+
+    .elipse {
+        display: flex;
+        justify-content: center;
+        height: 10vh;
+        width: 10vh;
+        align-items: center;
+        border-radius: 50%;
+
+        &.yellow {
+            background-color: inherit;
+            border: 3px solid var(--sunglow);
+
+            svg, 
+            svg path {
+                stroke: var(--sunglow);
+            }
+
+            &.active {
+                background-color: var(--sunglow);
+
+                svg,
+                svg path {
+                    stroke: #FFF;
+                }
+            }
+        }
+
+    }
+
+    header {
+        position: relative;
+
+        h1 {
+            display: flex;
+            gap: 1vw;
+            margin: 0;
+            padding: 2.5vh 0 5vh 8vw;
+            font-size: 13vw;
+            font-style: normal;
+            font-weight: 400;
+            font-family: 'Titan One', cursive;
+            background: linear-gradient(101.39deg, var(--sunglow) 3.41%, var(--carnelian) 91.01%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+    
+            svg {
+                height: 13vw;
+                width: 13vw;
+            }
+        }
+
+        .elipse {
+            position: absolute;
+            top: 2vh;
+            right: 4vw;
+        }
+    }
+    
+    .page-content {
+        font-family: 'Montserrat', sans-serif;
+
+        h2 {
+            color: var(--carnelian);
+        }
+
+        input,
+        textarea,
+        select {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        
+        .btn {
+            width: 45vw;
+            padding: 1vh 0;
+            text-align: center;
+            font-size: 4vw;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+
+        .main-btn {
+            color: #fff;
+            background-color: var(--chocolate-web);
+            border: none;
+        }
+
+        .second-btn {
+            color: var(--chocolate-web);
+            border: 2px solid var(--chocolate-web);
+        }
+
+        .scroll {
+            max-height: 45vh;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--chocolate-web);
+                border-radius: 10px;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .newBet_js,
+        .newVote_js {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 1vh 3vw;
+            align-items: center;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .bet-elem {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 75px;
+            width: 85vw;
+            margin: 3vw;
+            padding: 2vh 3vw;
+            font-size: 4.5vw;
+            border: 3px solid var(--chocolate-web);
+            border-radius: 10px;
+
+            h2 {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin: 0;
+                align-items: center;
+                font-size: 5vw;
+
+                p {
+                    display: flex;
+                    justify-content: center;
+                    gap: 2vw;
+                    margin: 0;
+                    align-items: center;
+
+                    .title {
+                        width: 40vw;
+                    }
+
+                    .statut {
+                        margin: 0;
+                        padding: 1vh 2vw;
+                    }
+                }
+
+            }
+
+            p {
+                margin: 2vh 0;
+                font-size: 4vw;
+            }
+
+            .statut {
+                display: block;
+                min-width: 55px;
+                padding: 2vh 4vw;
+                text-align: center;
+                color: #000;
+                font-size: 3.5vw;
+                font-weight: bold;
+                border: 3px solid #000;
+                border-radius: 10px;
+
+                &.open{
+                    color: var(--avocado);
+                    border-color: var(--avocado);
+                }
+                &.closed{
+                    color: var(--carnelian);
+                    border-color: var(--carnelian);
+                }
+                &.old {
+                    color: var(--granite-gray);
+                    border-color: var(--granite-gray);
+                }
+            }
+
+            .user-name {
+                font-weight: 600;
+            }
+
+            .date {
+                min-width: 95px;
+                padding: 1vh 0;
+                text-align: center;
+                font-weight: 600;
+                border: 1px solid;
+                border-radius: 10px;
+            }
+
+            span:has(svg) {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+
+            .btn-box {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+    
+        &#homePage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2vh;
+            margin: 2vh 0;
+
+            .elipse {
+                margin: 2vh auto;
+                background-color: var(--sunglow);
+            }
+            ul.bet-list {
+                max-height: 65vh;
+                width: 95vw;
+                margin: 0 auto;
+                padding: 0 0 0 2vw;
+
+                .bet-elem {
+                    width: 85%;
+                }
+            }
+        }
+
+        &#showBetPage {
+            .bet-elem {
+                .newVote_js {
+                    margin: 2vh 0 1vh;
+                }
+
+                ul.votes-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1vh;
+                    margin: 1vh 0 0;
+                    padding: 0 0 0 2vw;
+                    list-style-type: none;
+
+                    li.vote-elem {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 10px;
+                        align-items: center;
+                        font-size: 2vw;
+                        background-color: #dc712638;
+                        gap: 3vw;
+
+                        img {
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+    
+                        p {
+                            margin: 0;
+                        }
+
+                        &.form {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px;
+                            background-color: #dc712638;
+    
+                            select,
+                            input[type="date"],
+                            .postVote_js {
+                                padding: 5px 10px;
+                                font-size: 4vw;
+                                border: none;
+                                border-radius: 5px;
+                            }
+    
+                            .postVote_js {
+                                color: #FFF;
+                                font-weight: 500;
+                                background-color: #dc7126;
+                            }
+                        }
+    
+                        &.no-vote {
+                            text-align: center;
+                            background-color: inherit;
+                        }
+    
+                    }
+                }
+            }
+        }
+
+        &#loginPage,
+        &#newBetPage,
+        &#newVotePage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 2vh;
+                align-items: center;
+                margin-bottom: 2vh;
+
+                label {
+                    font-weight: 600;
+                }
+                
+                #bet,
+                #vote {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1vh;
+                    width: 90vw;
+                    padding: 2vh 3vw;
+                    color: #fff;
+                    background-color: var(--chocolate-web);
+                    border-radius: 10px;
+
+                    div {
+                        display: flex;
+                        gap: 1vw;
+                        color: #fff;
+                    }
+                }
+
+                #bet {
+                    div {
+                        justify-content: space-between;
+
+                        textarea,
+                        select {
+                            width: 52vw;
+                            border: none;
+                            border-radius: 5px;
+                        }
+
+                        textarea {
+                            min-height: 5vh;
+                            max-height: 15vh;
+                            resize: vertical;
+                        }
+
+                        select {
+                            width: 53vw;
+                        }
+                    } 
+                }
+
+                #vote {
+                    div {
+                        &:has(#vote_bet){
+                            margin-bottom: 3vh;
+                            font-size: 6vw;
+    
+                            #vote_bet {
+                                color: #fff;
+                                background-color: var(--chocolate-web);
+                                font-size: 6vw;
+                                font-weight: 600;
+                                border: none;
+                                opacity: 1;
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                            }
+                        }
+    
+                        &:has(#vote_date),
+                        &:has(#vote_user) {
+                            justify-content: space-between;
+    
+                            input,
+                            select {
+                                padding: 0.5vh 1vw;
+                                border: none;
+                                border-radius: 5px;
+                            }
+    
+                            #vote_date,
+                            #vote_user {
+                                justify-content: end;
+                                width: 52vw;
+                            }
+    
+                            #vote_date {
+                                width: 50vw;
+
+                                select {
+                                    width: 33%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &#loginPage {
+            margin-top: 7vh;
+
+            form {
+                width: 90vw;
+
+                > div {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                button {
+                    margin-top: 2vh;
+                }
+            }
+        }
+    }
+
+    footer nav {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+    }
+}

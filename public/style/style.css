@@ -1,0 +1,458 @@
+/* vars */
+:root {
+  /* colors */
+  --sunglow: #ffcc35;
+  --chocolate-web: #dc7126;
+  --carnelian: #b81616;
+  --green-ryb: #68b306;
+  --avocado: #4f8904;
+  --background: #eeeeee;
+  --cultured: #f5f6f7;
+  --gainsboro: #dedfdf;
+  --silver: #c7c7c7;
+  --manatee: #979ba7;
+  --granite-gray: #636363;
+  --eerie-black: #262626;
+  --cosmic-latte: #fdf4e0;
+}
+
+body {
+  margin: 0;
+}
+body .hidden {
+  display: none !important;
+}
+body #blockedPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.4588235294);
+  z-index: 1;
+  pointer-events: none;
+}
+body #blockedPage .spinner {
+  position: absolute;
+  display: inline-block;
+  align-self: center;
+  top: 50vh;
+  right: 50%;
+  height: 60px;
+  width: 60px;
+  transform: translate(50%, 0);
+}
+body #blockedPage .spinner div {
+  position: absolute;
+  display: block;
+  height: 60px;
+  width: 60px;
+  box-sizing: border-box;
+  border: 6px solid #fff;
+  border-color: #FFF transparent transparent transparent;
+  border-radius: 50%;
+  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+body #blockedPage .spinner div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+body #blockedPage .spinner div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+body #blockedPage .spinner div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body .elipse {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  width: 10vh;
+  align-items: center;
+  border-radius: 50%;
+}
+body .elipse.yellow {
+  background-color: inherit;
+  border: 3px solid var(--sunglow);
+}
+body .elipse.yellow svg,
+body .elipse.yellow svg path {
+  stroke: var(--sunglow);
+}
+body .elipse.yellow.active {
+  background-color: var(--sunglow);
+}
+body .elipse.yellow.active svg,
+body .elipse.yellow.active svg path {
+  stroke: #FFF;
+}
+body header {
+  position: relative;
+}
+body header h1 {
+  display: flex;
+  gap: 1vw;
+  margin: 0;
+  padding: 2.5vh 0 5vh 8vw;
+  font-size: 13vw;
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Titan One", cursive;
+  background: linear-gradient(101.39deg, var(--sunglow) 3.41%, var(--carnelian) 91.01%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+body header h1 svg {
+  height: 13vw;
+  width: 13vw;
+}
+body header .elipse {
+  position: absolute;
+  top: 2vh;
+  right: 4vw;
+}
+body .page-content {
+  font-family: "Montserrat", sans-serif;
+}
+body .page-content h2 {
+  color: var(--carnelian);
+}
+body .page-content input,
+body .page-content textarea,
+body .page-content select {
+  font-family: "Montserrat", sans-serif;
+}
+body .page-content .btn {
+  width: 45vw;
+  padding: 1vh 0;
+  text-align: center;
+  font-size: 4vw;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+body .page-content .main-btn {
+  color: #fff;
+  background-color: var(--chocolate-web);
+  border: none;
+}
+body .page-content .second-btn {
+  color: var(--chocolate-web);
+  border: 2px solid var(--chocolate-web);
+}
+body .page-content .scroll {
+  max-height: 45vh;
+  overflow-y: scroll;
+}
+body .page-content .scroll::-webkit-scrollbar {
+  width: 8px;
+}
+body .page-content .scroll::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 10px;
+}
+body .page-content .scroll::-webkit-scrollbar-thumb {
+  background-color: var(--chocolate-web);
+  border-radius: 10px;
+}
+body .page-content ul {
+  list-style-type: none;
+}
+body .page-content .newBet_js,
+body .page-content .newVote_js {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 1vh 3vw;
+  align-items: center;
+}
+body .page-content .newBet_js p,
+body .page-content .newVote_js p {
+  margin: 0;
+}
+body .page-content .bet-elem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 75px;
+  width: 85vw;
+  margin: 3vw;
+  padding: 2vh 3vw;
+  font-size: 4.5vw;
+  border: 3px solid var(--chocolate-web);
+  border-radius: 10px;
+}
+body .page-content .bet-elem h2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+  align-items: center;
+  font-size: 5vw;
+}
+body .page-content .bet-elem h2 p {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  margin: 0;
+  align-items: center;
+}
+body .page-content .bet-elem h2 p .title {
+  width: 40vw;
+}
+body .page-content .bet-elem h2 p .statut {
+  margin: 0;
+  padding: 1vh 2vw;
+}
+body .page-content .bet-elem p {
+  margin: 2vh 0;
+  font-size: 4vw;
+}
+body .page-content .bet-elem .statut {
+  display: block;
+  min-width: 55px;
+  padding: 2vh 4vw;
+  text-align: center;
+  color: #000;
+  font-size: 3.5vw;
+  font-weight: bold;
+  border: 3px solid #000;
+  border-radius: 10px;
+}
+body .page-content .bet-elem .statut.open {
+  color: var(--avocado);
+  border-color: var(--avocado);
+}
+body .page-content .bet-elem .statut.closed {
+  color: var(--carnelian);
+  border-color: var(--carnelian);
+}
+body .page-content .bet-elem .statut.old {
+  color: var(--granite-gray);
+  border-color: var(--granite-gray);
+}
+body .page-content .bet-elem .user-name {
+  font-weight: 600;
+}
+body .page-content .bet-elem .date {
+  min-width: 95px;
+  padding: 1vh 0;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 10px;
+}
+body .page-content .bet-elem span:has(svg) {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+body .page-content .bet-elem .btn-box {
+  display: flex;
+  justify-content: center;
+}
+body .page-content#homePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  margin: 2vh 0;
+}
+body .page-content#homePage .elipse {
+  margin: 2vh auto;
+  background-color: var(--sunglow);
+}
+body .page-content#homePage ul.bet-list {
+  max-height: 65vh;
+  width: 95vw;
+  margin: 0 auto;
+  padding: 0 0 0 2vw;
+}
+body .page-content#homePage ul.bet-list .bet-elem {
+  width: 85%;
+}
+body .page-content#showBetPage .bet-elem .newVote_js {
+  margin: 2vh 0 1vh;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin: 1vh 0 0;
+  padding: 0 0 0 2vw;
+  list-style-type: none;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  font-size: 2vw;
+  background-color: rgba(220, 113, 38, 0.2196078431);
+  gap: 3vw;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem p {
+  margin: 0;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem.form {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgba(220, 113, 38, 0.2196078431);
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem.form select,
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem.form input[type=date],
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem.form .postVote_js {
+  padding: 5px 10px;
+  font-size: 4vw;
+  border: none;
+  border-radius: 5px;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem.form .postVote_js {
+  color: #FFF;
+  font-weight: 500;
+  background-color: #dc7126;
+}
+body .page-content#showBetPage .bet-elem ul.votes-list li.vote-elem.no-vote {
+  text-align: center;
+  background-color: inherit;
+}
+body .page-content#loginPage, body .page-content#newBetPage, body .page-content#newVotePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .page-content#loginPage form, body .page-content#newBetPage form, body .page-content#newVotePage form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+body .page-content#loginPage form label, body .page-content#newBetPage form label, body .page-content#newVotePage form label {
+  font-weight: 600;
+}
+body .page-content#loginPage form #bet,
+body .page-content#loginPage form #vote, body .page-content#newBetPage form #bet,
+body .page-content#newBetPage form #vote, body .page-content#newVotePage form #bet,
+body .page-content#newVotePage form #vote {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  width: 90vw;
+  padding: 2vh 3vw;
+  color: #fff;
+  background-color: var(--chocolate-web);
+  border-radius: 10px;
+}
+body .page-content#loginPage form #bet div,
+body .page-content#loginPage form #vote div, body .page-content#newBetPage form #bet div,
+body .page-content#newBetPage form #vote div, body .page-content#newVotePage form #bet div,
+body .page-content#newVotePage form #vote div {
+  display: flex;
+  gap: 1vw;
+  color: #fff;
+}
+body .page-content#loginPage form #bet div, body .page-content#newBetPage form #bet div, body .page-content#newVotePage form #bet div {
+  justify-content: space-between;
+}
+body .page-content#loginPage form #bet div textarea,
+body .page-content#loginPage form #bet div select, body .page-content#newBetPage form #bet div textarea,
+body .page-content#newBetPage form #bet div select, body .page-content#newVotePage form #bet div textarea,
+body .page-content#newVotePage form #bet div select {
+  width: 52vw;
+  border: none;
+  border-radius: 5px;
+}
+body .page-content#loginPage form #bet div textarea, body .page-content#newBetPage form #bet div textarea, body .page-content#newVotePage form #bet div textarea {
+  min-height: 5vh;
+  max-height: 15vh;
+  resize: vertical;
+}
+body .page-content#loginPage form #bet div select, body .page-content#newBetPage form #bet div select, body .page-content#newVotePage form #bet div select {
+  width: 53vw;
+}
+body .page-content#loginPage form #vote div:has(#vote_bet), body .page-content#newBetPage form #vote div:has(#vote_bet), body .page-content#newVotePage form #vote div:has(#vote_bet) {
+  margin-bottom: 3vh;
+  font-size: 6vw;
+}
+body .page-content#loginPage form #vote div:has(#vote_bet) #vote_bet, body .page-content#newBetPage form #vote div:has(#vote_bet) #vote_bet, body .page-content#newVotePage form #vote div:has(#vote_bet) #vote_bet {
+  color: #fff;
+  background-color: var(--chocolate-web);
+  font-size: 6vw;
+  font-weight: 600;
+  border: none;
+  opacity: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+body .page-content#loginPage form #vote div:has(#vote_date), body .page-content#loginPage form #vote div:has(#vote_user), body .page-content#newBetPage form #vote div:has(#vote_date), body .page-content#newBetPage form #vote div:has(#vote_user), body .page-content#newVotePage form #vote div:has(#vote_date), body .page-content#newVotePage form #vote div:has(#vote_user) {
+  justify-content: space-between;
+}
+body .page-content#loginPage form #vote div:has(#vote_date) input,
+body .page-content#loginPage form #vote div:has(#vote_date) select, body .page-content#loginPage form #vote div:has(#vote_user) input,
+body .page-content#loginPage form #vote div:has(#vote_user) select, body .page-content#newBetPage form #vote div:has(#vote_date) input,
+body .page-content#newBetPage form #vote div:has(#vote_date) select, body .page-content#newBetPage form #vote div:has(#vote_user) input,
+body .page-content#newBetPage form #vote div:has(#vote_user) select, body .page-content#newVotePage form #vote div:has(#vote_date) input,
+body .page-content#newVotePage form #vote div:has(#vote_date) select, body .page-content#newVotePage form #vote div:has(#vote_user) input,
+body .page-content#newVotePage form #vote div:has(#vote_user) select {
+  padding: 0.5vh 1vw;
+  border: none;
+  border-radius: 5px;
+}
+body .page-content#loginPage form #vote div:has(#vote_date) #vote_date,
+body .page-content#loginPage form #vote div:has(#vote_date) #vote_user, body .page-content#loginPage form #vote div:has(#vote_user) #vote_date,
+body .page-content#loginPage form #vote div:has(#vote_user) #vote_user, body .page-content#newBetPage form #vote div:has(#vote_date) #vote_date,
+body .page-content#newBetPage form #vote div:has(#vote_date) #vote_user, body .page-content#newBetPage form #vote div:has(#vote_user) #vote_date,
+body .page-content#newBetPage form #vote div:has(#vote_user) #vote_user, body .page-content#newVotePage form #vote div:has(#vote_date) #vote_date,
+body .page-content#newVotePage form #vote div:has(#vote_date) #vote_user, body .page-content#newVotePage form #vote div:has(#vote_user) #vote_date,
+body .page-content#newVotePage form #vote div:has(#vote_user) #vote_user {
+  justify-content: end;
+  width: 52vw;
+}
+body .page-content#loginPage form #vote div:has(#vote_date) #vote_date, body .page-content#loginPage form #vote div:has(#vote_user) #vote_date, body .page-content#newBetPage form #vote div:has(#vote_date) #vote_date, body .page-content#newBetPage form #vote div:has(#vote_user) #vote_date, body .page-content#newVotePage form #vote div:has(#vote_date) #vote_date, body .page-content#newVotePage form #vote div:has(#vote_user) #vote_date {
+  width: 50vw;
+}
+body .page-content#loginPage form #vote div:has(#vote_date) #vote_date select, body .page-content#loginPage form #vote div:has(#vote_user) #vote_date select, body .page-content#newBetPage form #vote div:has(#vote_date) #vote_date select, body .page-content#newBetPage form #vote div:has(#vote_user) #vote_date select, body .page-content#newVotePage form #vote div:has(#vote_date) #vote_date select, body .page-content#newVotePage form #vote div:has(#vote_user) #vote_date select {
+  width: 33%;
+}
+body .page-content#loginPage {
+  margin-top: 7vh;
+}
+body .page-content#loginPage form {
+  width: 90vw;
+}
+body .page-content#loginPage form > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+body .page-content#loginPage form button {
+  margin-top: 2vh;
+}
+body footer nav {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

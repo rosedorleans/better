@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pari{% endblock %}
+
+{% block idPageContent %}showBetPage{% endblock %}
+
+{% block body %}
+    <div class="bet-elem" data-id="{{ bet.id }}">
+        <h2>
+            <p>
+                <span class="title">{{ bet.name }}</span>
+                <span class="statut {{ bet.statut.className }}">{{ bet.statut.name }}</span>
+            </p>
+            <a href="{{ path('app_bet_index') }}" class="close">
+                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </h2>
+        <p>{{ bet.description }}</p>
+        {% if bet.statut.className == "open" %}
+            <div class="btn-box">
+                <a href="{{ path('app_vote_new', {'bet_id': bet.id}) }}" class="newVote_js btn main-btn">
+                    Nouveau vote
+                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 3C13.5 2.44772 13.0523 2 12.5 2H11.5C10.9477 2 10.5 2.44772 10.5 3V10.5H3C2.44772 10.5 2 10.9477 2 11.5V12.5C2 13.0523 2.44772 13.5 3 13.5H10.5V21C10.5 21.5523 10.9477 22 11.5 22H12.5C13.0523 22 13.5 21.5523 13.5 21V13.5H21C21.5523 13.5 22 13.0523 22 12.5V11.5C22 10.9477 21.5523 10.5 21 10.5H13.5V3Z" fill="#FFF"/></svg>
+                </a>
+            </div>
+        {% endif %}
+        <ul class="votes-list scroll">
+            {% for vote in bet.votes %}
+                <li class="vote-elem voted">
+                    <img src="{{ asset('img/users/' ~ vote.user.image ) }}" alt="photo de profil">
+                    <p><span class="user-name">{{ vote.user.username }}</span> à voté</p>
+                    <p class="date">{{ vote.date |date('d/m/Y') }}</p>
+                </li>
+            {% else %}
+                <p>Aucun vote</p>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+
+
+
+    {# todo : role admin  #}
+    {# {{ include('bet/_delete_form.html.twig') }} #}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste{% endblock %}
+
+{% block idPageContent %}homePage{% endblock %}
+
+{% block menuClass %}active{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_bet_new') }}" class="newBet_js btn main-btn">
+        <p>Nouveau pari</p>
+        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 3C13.5 2.44772 13.0523 2 12.5 2H11.5C10.9477 2 10.5 2.44772 10.5 3V10.5H3C2.44772 10.5 2 10.9477 2 11.5V12.5C2 13.0523 2.44772 13.5 3 13.5H10.5V21C10.5 21.5523 10.9477 22 11.5 22H12.5C13.0523 22 13.5 21.5523 13.5 21V13.5H21C21.5523 13.5 22 13.0523 22 12.5V11.5C22 10.9477 21.5523 10.5 21 10.5H13.5V3Z" fill="#FFF"/>
+        </svg>
+    </a>
+    <ul class="bet-list scroll">
+        {% for bet in bets %}
+            <li class="bet-elem">
+                <h2>
+                    <p>
+                        <span class="title">{{ bet.name }}</span>
+                        <span class="statut {{ bet.statut.className }}">{{ bet.statut.name }}</span>
+                    </p>
+                    <a href="{{ path('app_bet_show', {'id': bet.id}) }}" class="arrow">
+                        <svg width="30px" height="30px" viewBox="0 -5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Dribbble-Light-Preview" transform="translate(-340.000000, -6564.000000)" fill="#000000"><g id="icons" transform="translate(56.000000, 160.000000)"><path d="M298.803134,6405.67805 L300.227463,6407.16201 C300.5321,6407.48143 300.304126,6407.99811 299.861293,6407.99811 L284.834221,6407.99811 C284.277401,6407.99811 284,6408.4477 284,6409.00043 L284,6408.99242 C284,6409.54515 284.277401,6410.00075 284.834221,6410.00075 L299.846162,6410.00075 C300.291013,6410.00075 300.517977,6410.54047 300.209306,6410.85788 L298.793047,6412.31781 C298.409729,6412.71634 298.426877,6413.35218 298.833396,6413.72867 L298.835413,6413.73268 C299.236888,6414.10517 299.866337,6414.08614 300.244611,6413.68962 L303.449351,6410.34721 C304.186734,6409.57219 304.182699,6408.36059 303.44229,6407.58957 L300.265794,6404.30724 C299.888529,6403.91472 299.264124,6403.8957 298.863658,6404.26518 L298.85357,6404.2752 C298.44806,6404.64869 298.425868,6405.27752 298.803134,6405.67805" id="arrow_right-[#365]"></path></g></g></g></svg>
+                    </a>
+                </h2>
+                <p>{{ bet.description }}</p>
+            </li>
+            {# <a href="{{ path('app_bet_edit', {'id': bet.id}) }}">edit</a> #}
+        {% else %}
+            <li>Aucun pari</li>
+        {% endfor %}
+    </ul>
+    {% if app.user %}
+        <a href="{{ path('app_logout') }}" class="btn second-btn">Déconnexion</a>
+    {% endif %}
+{% endblock %}

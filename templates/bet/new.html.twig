@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Bet{% endblock %}
+
+{% block idPageContent %}newBetPage{% endblock %}
+
+{% block body %}
+    <h2>Nouveau pari</h2>
+
+    {{ include('bet/_form.html.twig') }}
+
+    <a href="{{ path('app_bet_index') }}" class="btn second-btn">Retour</a>
+{% endblock %}
