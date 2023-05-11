@@ -27,7 +27,7 @@
         <ul class="votes-list scroll">
             {% for vote in bet.votes %}
                 <li class="vote-elem voted">
-                    <img src="{{ asset('img/users/' ~ vote.user.image ) }}" alt="photo de profil">
+                    <img src="{{ asset('img/users/' ~ ((vote.user.image) ? vote.user.image : "default.png" )) }}" alt="photo de profil">
                     <p><span class="user-name">{{ vote.user.username }}</span> à voté</p>
                     <p class="date">{{ vote.date |date('d/m/Y') }}</p>
                 </li>

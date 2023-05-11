@@ -24,6 +24,11 @@ class Vote
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    public function __toString(): string
+    {
+        return $this->bet.' - '.$this->user;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

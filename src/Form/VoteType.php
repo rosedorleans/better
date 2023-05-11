@@ -15,7 +15,7 @@ class VoteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $today = new \DateTime();
+        // $today = new \DateTime();
 
         $builder
             ->add('bet', EntityType::class, [

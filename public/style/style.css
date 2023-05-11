@@ -190,7 +190,7 @@ body .page-content .bet-elem {
   margin: 3vw;
   padding: 2vh 3vw;
   font-size: 4.5vw;
-  border: 3px solid var(--chocolate-web);
+  border: 2px solid var(--chocolate-web);
   border-radius: 10px;
 }
 body .page-content .bet-elem h2 {
@@ -227,7 +227,7 @@ body .page-content .bet-elem .statut {
   color: #000;
   font-size: 3.5vw;
   font-weight: bold;
-  border: 3px solid #000;
+  border: 2px solid #000;
   border-radius: 10px;
 }
 body .page-content .bet-elem .statut.open {
@@ -274,7 +274,7 @@ body .page-content#homePage .elipse {
   background-color: var(--sunglow);
 }
 body .page-content#homePage ul.bet-list {
-  max-height: 65vh;
+  max-height: 55vh;
   width: 95vw;
   margin: 0 auto;
   padding: 0 0 0 2vw;
@@ -435,7 +435,7 @@ body .page-content#loginPage form #vote div:has(#vote_date) #vote_date select, b
   width: 33%;
 }
 body .page-content#loginPage {
-  margin-top: 7vh;
+  margin-top: 5vh;
 }
 body .page-content#loginPage form {
   width: 90vw;
@@ -444,15 +444,18 @@ body .page-content#loginPage form > div {
   display: flex;
   flex-direction: column;
   gap: 2vh;
+  align-items: center;
   width: 90%;
   padding: 3vh 4vw;
-  border: 3px solid var(--chocolate-web);
+  border: 2px solid var(--chocolate-web);
   border-radius: 10px;
 }
 body .page-content#loginPage form > div div {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  gap: 1vh;
+  width: 85%;
 }
 body .page-content#loginPage form > div div label {
   color: var(--carnelian);
